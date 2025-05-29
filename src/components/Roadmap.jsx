@@ -1,94 +1,151 @@
 import { motion } from 'framer-motion';
 import { FadeIn } from '../Animator';
+import { 
+  FaBrain, 
+  FaSeedling, 
+  FaGlobeAsia, 
+  FaRocket,
+  FaCircle 
+} from 'react-icons/fa';
+import { GiProgression } from 'react-icons/gi';
 
 const Roadmap = () => {
   const milestones = [
     {
-      year: "2023",
-      title: "Pilot Launch",
-      description: "Onion supply chain optimization in Dhaka region",
-      icon: "🚀"
+      icon: <FaBrain className="text-3xl" />,
+      title: 'Smart Sourcing Intelligence',
+      description: 'Field agents provide daily quality + price data ensuring best deals from multiple regions',
+      color: 'bg-earthy-yellow',
+      iconColor: 'text-earthy-brown'
     },
     {
-      year: "2024",
-      title: "Hub Expansion",
-      description: "Establish 5 regional hubs across Bangladesh",
-      icon: "🏗️"
+      icon: <FaSeedling className="text-3xl" />,
+      title: 'Scalable by Design',
+      description: 'Hub-based model ready for replication with gradual, low-burn expansion approach',
+      color: 'bg-olive',
+      iconColor: 'text-earthy-beige'
     },
     {
-      year: "2025",
-      title: "Product Diversification",
-      description: "Add potatoes, garlic, and ginger to our offerings",
-      icon: "🥔"
+      icon: <FaGlobeAsia className="text-3xl" />,
+      title: 'Vision-Driven Transition',
+      description: 'Shifting from traditional model to data-powered platform with AI logistics and connectivity',
+      color: 'bg-earthy-brown',
+      iconColor: 'text-earthy-tan'
     },
     {
-      year: "2026",
-      title: "Nationwide Coverage",
-      description: "Cover all 64 districts with our decentralized model",
-      icon: "🗺️"
-    },
-    {
-      year: "2027",
-      title: "International Reach",
-      description: "Expand to neighboring countries with similar agricultural challenges",
-      icon: "🌍"
+      icon: <FaRocket className="text-3xl" />,
+      title: 'Step-by-Step Expansion',
+      description: 'From Pilot to SME to Startup, focusing first on supply chain efficiency',
+      color: 'bg-earthy-tan',
+      iconColor: 'text-earthy-brown'
     }
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    show: { y: 0, opacity: 1 }
+  };
+
   return (
-    <section id="roadmap" className="py-20 bg-earthy-beige">
-      <div className="container mx-auto px-6">
+    <section className="py-16 px-4 bg-earthy-beige">
+      <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4 text-center">
-            Strategic Roadmap
-          </h2>
-          <p className="text-earthy-brown max-w-3xl mx-auto text-center mb-12">
-            Our decentralized hub model is built to grow, product by product, region by region.
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
+              Our Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-earthy-yellow to-olive">Roadmap</span> 
+            </h2>
+            <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full"></div>
+          </div>
         </FadeIn>
 
-        <div className="relative">
+        <motion.div 
+          className="relative"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 h-full w-1 bg-earthy-yellow transform -translate-x-1/2"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-earthy-tan/50 hidden md:block"></div>
           
-          <div className="space-y-12 md:space-y-0">
+          <div className="grid md:grid-cols-2 gap-12">
             {milestones.map((milestone, index) => (
-              <FadeIn key={index} delay={index * 0.15}>
-                <div className={`flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`md:w-1/2 p-6 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+              <motion.div 
+                key={index}
+                className={`relative ${index % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left md:mt-32'}`}
+                variants={item}
+              >
+                {/* Mobile connector */}
+                <div className="absolute left-0 top-8 w-1/4 h-1 bg-earthy-tan md:hidden"></div>
+                
+                <div className="flex items-start md:block">
+                  {/* Icon bubble */}
+                  <div className={`${milestone.color} w-16 h-16 rounded-full flex items-center justify-center z-10 relative mr-4 md:mx-auto md:mb-6`}>
+                    <span className={milestone.iconColor}>{milestone.icon}</span>
+                  </div>
+                  
+                  <div className="flex-1 md:text-center">
+                    <h3 className="text-xl font-display font-bold text-earthy-brown mb-2">
+                      {milestone.title}
+                    </h3>
+                    <p className="text-earthy-brown font-sans">
+                      {milestone.description}
+                    </p>
+                    
+                    {/* Animated progress bar */}
                     <motion.div 
-                      whileHover={{ scale: 1.05 }}
-                      className={`inline-block ${index % 2 === 0 ? 'md:float-right' : 'md:float-left'}`}
+                      className="mt-4 h-2 bg-earthy-tan/30 rounded-full overflow-hidden"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "100%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.5, delay: 0.2 }}
                     >
-                      <div className="text-5xl mb-4">{milestone.icon}</div>
-                      <h3 className="text-2xl font-display font-semibold text-earthy-brown mb-2">
-                        {milestone.year} - {milestone.title}
-                      </h3>
-                      <p className="text-earthy-brown">{milestone.description}</p>
+                      <div className={`h-full ${milestone.color} rounded-full`}></div>
                     </motion.div>
                   </div>
-                  
-                  {/* Timeline dot */}
-                  <div className="hidden md:flex w-1/2 justify-center relative">
-                    <div className="w-8 h-8 rounded-full bg-olive flex items-center justify-center text-white font-bold z-10">
-                      {index + 1}
-                    </div>
-                  </div>
-                  
-                  <div className="md:w-1/2 p-6">
-                    <div className="h-48 bg-earthy-tan rounded-xl overflow-hidden">
-                      <img 
-                        src={`/dummy-roadmap-${index + 1}.jpg`} 
-                        alt={milestone.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
                 </div>
-              </FadeIn>
+                
+                {/* Desktop connector dot */}
+                {index < milestones.length - 1 && (
+                  <div className={`absolute top-16 ${
+                    index % 2 === 0 
+                      ? 'md:right-[-8px]' 
+                      : 'md:left-[-8px]'
+                  } hidden md:block`}>
+                    <FaCircle className={`text-xs ${milestone.iconColor}`} />
+                  </div>
+                )}
+              </motion.div>
             ))}
           </div>
-        </div>
+          
+          {/* Floating elements */}
+          <motion.div 
+            className="absolute top-1/4 left-10 opacity-10"
+            animate={{ y: [0, -20, 0] }}
+            transition={{ repeat: Infinity, duration: 6 }}
+          >
+            <div className="w-24 h-24 rounded-full bg-earthy-yellow blur-xl"></div>
+          </motion.div>
+          
+          <motion.div 
+            className="absolute bottom-1/4 right-10 opacity-10"
+            animate={{ y: [0, 20, 0] }}
+            transition={{ repeat: Infinity, duration: 5, delay: 1 }}
+          >
+            <div className="w-32 h-32 rounded-full bg-olive blur-xl"></div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

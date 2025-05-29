@@ -8,6 +8,7 @@ import Team from './components/Team';
 import CaseStudy from './components/CaseStudy';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import CurrentOfferings from './components/CurrentOfferings';
 
 function App() {
   return (
@@ -19,9 +20,11 @@ function App() {
       <MissionVision />
       <Roadmap />
       <Team />
-      <CaseStudy />
+      <CurrentOfferings />
+      {/* <CaseStudy /> */}
       <Contact />
       <Footer />
+    
     </div>
   );
 }

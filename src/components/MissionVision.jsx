@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { FadeIn, FloatIn, GlassCard } from '../Animator';
 import { FiTarget, FiEye, FiRefreshCw } from 'react-icons/fi';
+import AarothProcessFlow from './AarothProcessFlow';
+import AarothProcessFlowPic from '../assets/AarothProcessFlow.webp';
 
 const MissionVision = () => {
   const cards = [
@@ -8,13 +10,11 @@ const MissionVision = () => {
       title: "Our Mission",
       content: "To make the agri-supply chain transparent, efficient and profitable for every stakeholder.",
       icon: <FiTarget className="w-8 h-8" />,
-      color: "bg-gradient-to-br from-earthy-yellow to-earthy-brown"
     },
     {
       title: "Our Vision",
       content: "To be the leading agri-tech company in the Bangladesh market and beyond, empowering the food ecosystem through data and trust.",
       icon: <FiEye className="w-8 h-8" />,
-      color: "bg-gradient-to-br from-olive to-earthy-yellow"
     },
   ];
 
@@ -50,9 +50,12 @@ const MissionVision = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-12 text-center">
+        <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
             Mission <span className="text-transparent bg-clip-text bg-gradient-to-r from-earthy-yellow to-olive">&</span> Vision
           </h2>
+          <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full"></div>
+        </div>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
@@ -69,7 +72,7 @@ const MissionVision = () => {
                 className="h-full"
               >
                 <GlassCard>
-                  <div className={`h-full p-8 rounded-2xl ${card.color} text-white`}>
+                  <div className={`h-full p-8 rounded-2xl bg-gradient-to-br from-earthy-yellow to-earthy-brown text-white`}>
                     <div className="w-16 h-16 rounded-xl bg-white/30 backdrop-blur-md flex items-center justify-center mb-6">
                       {card.icon}
                     </div>
@@ -108,9 +111,9 @@ const MissionVision = () => {
               <div className="lg:w-1/2 p-8 lg:border-l border-white/10">
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-r from-earthy-yellow/30 to-olive/30 rounded-3xl blur-xl opacity-50"></div>
-                  <div className="relative bg-white/70 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg">
+                  <div className="relative bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg">
                     <img 
-                      src="/dummy-process-flow.jpg" 
+                      src= {AarothProcessFlowPic}
                       alt="Aaroth process flow"
                       className="w-full h-auto"
                     />
@@ -120,6 +123,7 @@ const MissionVision = () => {
             </div>
           </GlassCard>
         </FadeIn>
+        <AarothProcessFlow />
       </div>
     </section>
   );

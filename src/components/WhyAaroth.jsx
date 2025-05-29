@@ -1,109 +1,114 @@
 import { motion } from 'framer-motion';
-import { FadeIn, GlassCard } from '../Animator';
-import { FiDollarSign, FiTruck, FiShield, FiUsers, FiArrowRight } from 'react-icons/fi';
+import { FadeIn } from '../Animator';
+import { FaShieldAlt, FaChartLine, FaNetworkWired, FaUsers, FaClock } from 'react-icons/fa';
+import { GiProgression } from 'react-icons/gi';
 
 const WhyAaroth = () => {
-  const features = [
-    {
-      icon: <FiDollarSign className="w-6 h-6" />,
-      title: "Transparency with Fair Pricing",
-      description: "Real-time regional pricing data and open market access empowering farmers and consumers alike.",
-      color: "from-earthy-yellow/70 to-earthy-yellow/90"
-    },
-    {
-      icon: <FiTruck className="w-6 h-6" />,
-      title: "Efficient Supply Chain",
-      description: "AI-assisted routing system optimizes delivery by mapping district and sub-district hubs.",
-      color: "from-olive/70 to-olive/90"
-    },
-    {
-      icon: <FiShield className="w-6 h-6" />,
-      title: "Risk Mitigation",
-      description: "Immediate payment model eliminates credit delays and uncertainty.",
-      color: "from-earthy-brown/70 to-earthy-brown/90"
-    },
-    {
-      icon: <FiUsers className="w-6 h-6" />,
-      title: "Community-Driven Ecosystem",
-      description: "Building a vibrant ecosystem where farmers, resellers, and consumers are connected.",
-      color: "from-earthy-tan/70 to-earthy-tan/90"
-    }
-  ];
+    const features = [
+        {
+          icon: <FaShieldAlt className="text-3xl " />,
+          title: "Transparency & Trust",
+          description: "Real-time regional pricing data and open market access empower farmers and consumers alike.",
+          color: "bg-earthy-yellow"
+        },
+        {
+          icon: <FaNetworkWired className="text-3xl text-earthy-tan" />,
+          title: "Efficient Supply Chain",
+          description: "AI-assisted routing optimizes delivery through district and sub-district hubs.",
+          color: "bg-olive"
+        },
+        {
+          icon: <FaChartLine className="text-3xl text-earthy-tan" />,
+          title: "Hybrid Model",
+          description: "Adapts to existing retail practices while introducing digital efficiency.",
+          color: "bg-earthy-brown"
+        },
+        {
+          icon: <FaUsers className="text-3xl" />,
+          title: "Community-Driven",
+          description: "Shared platform fosters knowledge exchange and collaborative growth.",
+          color: "bg-earthy-tan"
+        },
+        {
+          icon: <GiProgression className="text-3xl" />,
+          title: "Phased Deployment",
+          description: "Iterative approach ensures practical usability and continuous improvement.",
+          color: "bg-earthy-yellow"
+        },
+        {
+          icon: <FaClock className="text-3xl text-earthy-tan" />,
+          title: "Adaptation-Centric",
+          description: "Smooth transition from traditional structures to innovative models.",
+          color: "bg-olive"
+        }
+      ];
 
   return (
-    <section id="why-aaroth" className="py-20 relative overflow-hidden">
-      {/* Animated background elements */}
-      <motion.div 
-        animate={{
-          rotate: [0, 360]
-        }}
-        transition={{
-          duration: 120,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-        className="absolute -right-64 -top-64 w-[600px] h-[600px] rounded-full border-2 border-earthy-yellow/10"
-      />
-      
-      <motion.div 
-        animate={{
-          rotate: [360, 0]
-        }}
-        transition={{
-          duration: 150,
-          repeat: Infinity,
-          ease: "linear",
-          delay: 30
-        }}
-        className="absolute -left-80 bottom-0 w-[700px] h-[700px] rounded-full border-2 border-olive/10"
-      />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
-              Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-olive to-earthy-brown">Aaroth</span> Stands Out
-            </h2>
-            <p className="text-earthy-brown/90 max-w-2xl mx-auto">
-              We're not just a business — we're a movement toward a fairer, smarter, and more connected agricultural ecosystem.
-            </p>
-          </div>
-        </FadeIn>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feature, index) => (
-            <FadeIn key={index} delay={index * 0.15}>
-              <GlassCard>
-                <motion.div
-                  whileHover={{ 
-                    y: -10,
-                    background: `linear-gradient(to bottom right, ${feature.color})`
-                  }}
-                  className={`p-6 rounded-2xl transition-all duration-300 h-full flex flex-col`}
-                >
-                  <div className="w-14 h-14 rounded-xl bg-white/30 backdrop-blur-md flex items-center justify-center mb-4 text-earthy-brown">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-display font-semibold text-earthy-brown mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-earthy-brown/90 mb-6 flex-grow">
-                    {feature.description}
-                  </p>
-                  <motion.div
-                    whileHover={{ x: 5 }}
-                    className="flex items-center text-earthy-brown/80 hover:text-gray-600 cursor-pointer"
-                  >
-                    <span className="mr-2">Learn more</span>
-                    <FiArrowRight />
-                  </motion.div>
-                </motion.div>
-              </GlassCard>
-            </FadeIn>
-          ))}
+    <section className="py-16 px-4 bg-text-earthy-tan">
+    <div className="max-w-6xl mx-auto">
+      <FadeIn>
+        <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
+            Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-olive to-earthy-yellow">Aaroth</span>  Stands Out
+          </h2>
+          <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full"></div>
+          <p className="text-earthy-brown max-w-3xl mx-auto text-center mt-4 mb-12">
+            Our unique approach combines technology with deep agricultural expertise
+          </p>
         </div>
+      </FadeIn>
+
+      <motion.div 
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2
+            }
+          }
+        }}
+      >
+        {features.map((feature, index) => (
+          <motion.div
+            key={index}
+            className={`p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow ${feature.color} bg-opacity-20`}
+            variants={{
+              hidden: { y: 20, opacity: 0 },
+              visible: { y: 0, opacity: 1 }
+            }}
+            whileHover={{ y: -5 }}
+          >
+            <div className={`w-16 h-16 ${feature.color} rounded-full flex items-center justify-center mb-6`}>
+              {feature.icon}
+            </div>
+            <h3 className="text-2xl font-display font-bold text-earthy-brown mb-3">{feature.title}</h3>
+            <p className="text-earthy-brown">{feature.description}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Image suggestion: 
+        A futuristic farm-to-table visualization showing digital elements 
+        overlaying a traditional agricultural supply chain. Could show:
+        - Farmers with tablets
+        - AI routing visualization
+        - Digital price displays
+        - Network connections between rural and urban areas
+      */}
+      <div className="mt-16 rounded-xl overflow-hidden shadow-2xl">
+        <img 
+          src="/path-to/why-stand-out-image.jpg" 
+          alt="Aaroth's digital agriculture network"
+          className="w-full h-auto"
+        />
       </div>
-    </section>
+    </div>
+  </section>
   );
 };
 

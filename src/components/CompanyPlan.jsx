@@ -1,76 +1,105 @@
 import { motion } from 'framer-motion';
-import { FadeIn, SlideIn } from '../Animator';
+import { FadeIn } from '../Animator';
+import { FaMapMarkedAlt, FaUsers, FaChessPawn } from 'react-icons/fa';
+import { GiPlantRoots, GiGrowth } from 'react-icons/gi';
 
 const CompanyPlan = () => {
-  const phases = [
+  const planItems = [
     {
-      title: "Pilot Phase",
-      description: "Focusing on onions - Bangladesh's most volatile staple",
-      image: "/dummy-pilot-phase.jpg",
-      features: [
+      icon: <GiPlantRoots className="text-3xl" />,
+      title: "Pilot Product",
+      details: "Onion supply - Bangladesh's most volatile staple",
+      subitems: [
         "Serving corporate canteens, restaurants, supershops",
-        "Reliable daily bulk delivery (orders over 60kgs)",
-        "Current hubs: Rajbari, Pabna, Faridpur, Kushtia, Manikganj"
-      ]
+        "Reliable daily bulk delivery (60kg+ orders)"
+      ],
     },
     {
-      title: "Next Steps",
-      description: "Expanding product offerings after securing sourcing",
-      image: "/dummy-next-steps.jpg",
-      features: [
+      icon: <FaMapMarkedAlt className="text-3xl" />,
+      title: "Sourcing Hubs",
+      details: "Strategic locations across production zones",
+      subitems: [
+        "Rajbari (current hub)",
+        "Pabna, Faridpur, Kustia, Manikganj (agents)"
+      ],
+    },
+    {
+      icon: <FaUsers className="text-3xl" />,
+      title: "Lean Team",
+      details: "Focused and efficient operation",
+      subitems: [
+        "5 Executive Members",
+        "Field agents & support team"
+      ],
+    },
+    {
+      icon: <GiGrowth className="text-3xl" />,
+      title: "Expansion Plan",
+      details: "Step-by-step product introduction",
+      subitems: [
         "Introduce potatoes next",
-        "Followed by garlic, ginger, other vegetables & spices",
-        "Only after securing sourcing coverage like onions"
-      ]
+        "Then garlic, ginger, other vegetables & spices",
+        "Only after securing sourcing coverage"
+      ],
     }
   ];
 
   return (
-    <section id="company-plan" className="py-20 bg-earthy-tan">
-      <div className="container mx-auto px-6">
+    <section className="py-16 px-4 bg-gradient-to-br from-earthy-beige/90 via-earthy-tan/70">
+      <div className="max-w-6xl mx-auto">
         <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4 text-center">
-            Company Plan
-          </h2>
-          <p className="text-earthy-brown max-w-3xl mx-auto text-center mb-12">
-            Aaroth is currently in its pilot phase, strategically focusing on establishing profitability from day one.
-          </p>
+          <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
+              Our Company <span className="text-transparent bg-clip-text bg-gradient-to-r from-olive to-earthy-yellow">Plan</span> 
+            </h2>
+            <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full"></div>
+            <p className="text-earthy-brown max-w-3xl mx-auto text-center mt-4 mb-12">
+              Focused execution with strategic scalability
+            </p>
+          </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {phases.map((phase, index) => (
-            <SlideIn key={index} from={index % 2 === 0 ? "left" : "right"} delay={index * 0.2}>
-              <motion.div 
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg"
-              >
-                <div className="h-48 bg-earthy-yellow overflow-hidden">
-                  <img 
-                    src={phase.image} 
-                    alt={phase.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-display font-semibold text-earthy-brown mb-3">
-                    {phase.title}
-                  </h3>
-                  <p className="text-earthy-brown mb-4">
-                    {phase.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {phase.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="text-olive mr-2">✓</span>
-                        <span className="text-earthy-brown">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            </SlideIn>
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {planItems.map((item, index) => (
+            <motion.div
+              key={index}
+              className="bg-white/40 p-8 rounded-xl shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className={`w-16 h-16 bg-olive rounded-full flex items-center text-earthy-beige justify-center mb-6`}>
+                {item.icon}
+              </div>
+              <h3 className="text-2xl font-display font-bold mb-3">{item.title}</h3>
+              <p className="font-medium mb-4">{item.details}</p>
+              <ul className="space-y-2">
+                {item.subitems.map((subitem, subIndex) => (
+                  <li key={subIndex} className="flex items-start">
+                    <span className={`inline-block w-2 h-2 bg-earthy-yellow rounded-full mt-2 mr-2`}></span>
+                    <span>{subitem}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           ))}
         </div>
+
+        <motion.div
+          className="rounded-xl overflow-hidden shadow-2xl relative"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <img 
+            src="/path-to/company-plan-image.jpg" 
+            alt="Aaroth's growth roadmap"
+            className="w-full h-auto"
+          />
+          <div className="absolute inset-0 bg-earthy-brown bg-opacity-20"></div>
+        </motion.div>
       </div>
     </section>
   );

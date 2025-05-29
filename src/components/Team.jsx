@@ -1,117 +1,296 @@
 import { motion } from 'framer-motion';
-import { FadeIn } from '../Animator';
+import { FaSeedling, FaLeaf, FaTree, FaWater,   FaTractor, FaWarehouse, FaChartLine, FaHandshake } from 'react-icons/fa';
+import { GiWheat, GiCorn, GiFarmTractor } from 'react-icons/gi';
+  import Mirza from '../assets/Team/Mirza.webp';
+  import Rajon from '../assets/Team/Rajon.webp';
+  import Sakib from '../assets/Team/Sakib.webp';
+  import Kalam from '../assets/Team/Kalam.webp';
+  import Shawon from '../assets/Team/Shawon.webp';
+  import Leon from '../assets/Team/Leon.jpg';
 
 const Team = () => {
   const teamMembers = [
     {
-      name: "Enamul Kabir Rajon",
-      role: "Co-Founder",
-      department: "Supply-chain Management",
-      education: "BSc, Green University (CSE)",
-      experience: "Working as an onion supplier for over fourteen years",
-      image: "/dummy-team-1.jpg"
-    },
-    {
       name: "Nazmus Sakib",
       role: "Co-Founder",
-      department: "Marketing and Distribution",
-      education: "BSc, RUET (Ceramic and metallurgical Engineering)",
-      image: "/dummy-team-2.jpg"
+      department: "Finance and Administration",
+      education: "BBA, Dhaka University (AIS)",
+      image: Sakib
     },
     {
       name: "Md Mirza Shihab",
       role: "Co-Founder",
       department: "ICT Department",
       education: "BSc, University of Technology Malaysia (CS)",
-      experience: "Developer at Popular Group",
-      image: "/dummy-team-3.jpg"
+      experience: "Software Engineer for over two years at Popular Group",
+      Certs: "Certified Scrum Master, Project Management: Professional Certificate",
+      image: Mirza
+    },
+    {
+      name: "Enamul Kabir Rajon",
+      role: "Co-Founder",
+      department: "Marketing and Distribution",
+      education: "BSc, RUET (Ceramic and metallurgical Engineering)",
+      image: Rajon
+    },
+    {
+      name: "Shariful Islam",
+      role: "Co-Founder",
+      department: "Supply-chain Management",
+      education: "BSc, Green University (CSE)",
+      experience: "Working as an onion supplier for over fourteen years.",
+      image: Shawon
+    },
+    {
+      name: "Abul Kalam Azad",
+      role: "Director",
+      department: "Public Relation",
+      education: "BSc, EUB (Civil Engineering)",
+      image: Kalam
     },
     {
       name: "Abu Sayeed Lion",
       role: "Director",
       department: "Public Relation",
       education: "MA, Dhaka University (Public Administration)",
-      image: "/dummy-team-4.jpg"
+      image: Leon
     }
   ];
 
-  return (
-    <section id="team" className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4 text-center">
-            Our Team
-          </h2>
-          <p className="text-earthy-brown max-w-3xl mx-auto text-center mb-12">
-            A visionary team of six, comprising four founders and a lean operations unit—driven by field data, intelligent sourcing, and a commitment to shaping a future-ready agri supply chain.
-          </p>
-        </FadeIn>
+  
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+  return (
+    <section id="team" className="relative py-20 bg-gradient-to-br from-white via-earthy-beige/30 to-white overflow-hidden">
+  <motion.div 
+    className="absolute top-10 left-1/4 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 2 }}
+  >
+    <FaSeedling className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute top-1/2 left-10 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 2 }}
+  >
+    <FaLeaf className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute bottom-20 right-20 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 4 }}
+  >
+    <FaTree className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute top-1/3 right-1/4 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 1 }}
+  >
+    <FaWater className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute bottom-1/4 left-1/3 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 3 }}
+  >
+    <FaTractor className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute top-1/4 right-10 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 5 }}
+  >
+    <FaWarehouse className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute bottom-10 left-1/2 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 2.5 }}
+  >
+    <FaChartLine className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute top-20 right-1/3 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 3.5 }}
+  >
+    <FaHandshake className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute bottom-1/3 left-1/5 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 1.5 }}
+  >
+    <GiWheat className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute top-3/4 right-1/5 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 4.5 }}
+  >
+    <GiCorn className="text-8xl text-olive" />
+  </motion.div>
+  
+  <motion.div 
+    className="absolute top-10 right-10 opacity-5 pointer-events-none"
+    animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+    transition={{ repeat: Infinity, duration: 10, delay: 0.5 }}
+  >
+    <GiFarmTractor className="text-8xl text-olive" />
+  </motion.div>
+
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 max-w-4xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-earthy-brown mb-4">
+            Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-earthy-yellow to-olive">Visionaries</span>
+          </h2>
+          <motion.div 
+            className="w-32 h-1 bg-gradient-to-r from-earthy-yellow to-olive mx-auto rounded-full mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
+          <p className="text-earthy-brown/80 text-lg leading-relaxed">
+            A collective of innovators redefining agriculture through technology, transparency, and sustainable practices.
+          </p>
+        </motion.div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-earthy-beige rounded-2xl overflow-hidden shadow-lg"
+              viewport={{ once: true, margin: "-100px" }}
+              whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
+              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-white/20 backdrop-blur-sm"
             >
-              <div className="h-64 bg-earthy-tan overflow-hidden">
+              <div className="relative w-full aspect-square overflow-hidden group">
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                  <div>
+                    <h3 className="text-white text-2xl font-bold">{member.name}</h3>
+                    <p className="text-earthy-yellow font-medium">{member.role}</p>
+                  </div>
+                </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-display font-semibold text-earthy-brown mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-olive font-medium mb-3">{member.role}</p>
-                <p className="text-earthy-brown text-sm mb-2">
-                  <span className="font-medium">Department:</span> {member.department}
-                </p>
-                <p className="text-earthy-brown text-sm mb-2">
-                  <span className="font-medium">Education:</span> {member.education}
-                </p>
-                {member.experience && (
-                  <p className="text-earthy-brown text-sm">
-                    <span className="font-medium">Experience:</span> {member.experience}
-                  </p>
-                )}
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-earthy-brown">{member.name}</h3>
+                    <p className="text-olive font-medium">{member.role}</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-2 h-2 rounded-full bg-earthy-yellow"></div>
+                    </div>
+                    <p className="ml-2 text-sm text-earthy-brown/80">{member.department}</p>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-2 h-2 rounded-full bg-earthy-yellow"></div>
+                    </div>
+                    <p className="ml-2 text-sm text-earthy-brown/80">{member.education}</p>
+                  </div>
+                  
+                  {member.experience && (
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-2 h-2 rounded-full bg-earthy-yellow"></div>
+                      </div>
+                      <p className="ml-2 text-sm text-earthy-brown/80">{member.experience}</p>
+                    </div>
+                  )}
+                  
+                  {member.Certs && (
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-2 h-2 rounded-full bg-earthy-yellow"></div>
+                      </div>
+                      <p className="ml-2 text-sm text-earthy-brown/80">{member.Certs}</p>
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <FadeIn delay={0.4}>
-          <div className="mt-16 bg-earthy-tan rounded-2xl p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                <div className="w-48 h-48 rounded-full bg-earthy-yellow overflow-hidden border-4 border-white shadow-lg">
-                  <img 
-                    src="/dummy-team-philosophy.jpg" 
-                    alt="Team philosophy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="md:w-2/3 md:pl-12">
-                <h3 className="text-2xl font-display font-semibold text-earthy-brown mb-4">
-                  Our Philosophy
-                </h3>
-                <blockquote className="text-earthy-brown text-lg italic mb-6">
-                  "We shouldn't disrupt the natural flow of life — nature always finds a way to balance, often with consequences. At Aaroth, we innovate by aligning with nature, not working against it."
-                </blockquote>
-                <p className="text-earthy-brown">
-                  We are empowering agriculture by connecting farmers through transparency, technology and trust.
-                </p>
-              </div>
+        {/* Philosophy Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-20 bg-gradient-to-r from-white/50 to-earthy-beige/30 rounded-2xl p-8 md:p-12 border border-white/30 backdrop-blur-sm relative overflow-hidden"
+        >
+          <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-earthy-yellow/10 blur-3xl"></div>
+          <div className="absolute -left-20 -bottom-20 w-64 h-64 rounded-full bg-olive/10 blur-3xl"></div>
+          
+          <div className="flex flex-col lg:flex-row items-center relative z-10">
+            <div className="lg:w-1/3 mb-8 lg:mb-0 flex justify-center">
+              <motion.div 
+                className="w-48 h-48 rounded-full bg-earthy-yellow/20 overflow-hidden border-4 border-white shadow-lg relative"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img 
+                  src="/dummy-team-philosophy.jpg" 
+                  alt="Team philosophy"
+                  className="w-full h-full object-cover"
+                />
+                <motion.div 
+                  className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 bg-black/30 transition-opacity duration-300 rounded-full"
+                  whileHover={{ opacity: 1 }}
+                >
+                  <FaSeedling className="text-white text-4xl" />
+                </motion.div>
+              </motion.div>
+            </div>
+            <div className="lg:w-2/3 lg:pl-12">
+              <h3 className="text-2xl md:text-3xl font-bold text-earthy-brown mb-6">
+                Our Guiding <span className="text-transparent bg-clip-text bg-gradient-to-r from-earthy-yellow to-olive">Principles</span>
+              </h3>
+              <blockquote className="text-earthy-brown text-lg md:text-xl italic mb-6 relative pl-6 border-l-4 border-earthy-yellow">
+                <span className="absolute -left-2 -top-4 text-3xl text-earthy-yellow">"</span>
+                We don't disrupt nature's balance—we align with it. True innovation works in harmony with the earth's rhythms, creating sustainable solutions that stand the test of time.
+                <span className="absolute -right-2 -bottom-4 text-3xl text-earthy-yellow">"</span>
+              </blockquote>
+              <p className="text-earthy-brown/80 leading-relaxed">
+                At Aaroth, we're building bridges between tradition and technology, empowering farmers through transparent systems that honor their wisdom while introducing smart solutions for tomorrow's challenges.
+              </p>
             </div>
           </div>
-        </FadeIn>
+        </motion.div>
       </div>
     </section>
   );
