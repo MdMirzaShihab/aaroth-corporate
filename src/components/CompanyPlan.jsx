@@ -13,24 +13,27 @@ const CompanyPlan = () => {
         "Serving corporate canteens, restaurants, supershops",
         "Reliable daily bulk delivery (60kg+ orders)"
       ],
+      color: "bg-earthy-yellow"
     },
     {
-      icon: <FaMapMarkedAlt className="text-3xl" />,
+      icon: <FaMapMarkedAlt className="text-3xl  text-earthy-tan" />,
       title: "Sourcing Hubs",
       details: "Strategic locations across production zones",
       subitems: [
         "Rajbari (current hub)",
         "Pabna, Faridpur, Kustia, Manikganj (agents)"
       ],
+      color: "bg-olive"
     },
     {
-      icon: <FaUsers className="text-3xl" />,
+      icon: <FaUsers className="text-3xl text-earthy-tan" />,
       title: "Lean Team",
       details: "Focused and efficient operation",
       subitems: [
         "5 Executive Members",
         "Field agents & support team"
       ],
+      color: "bg-earthy-brown"
     },
     {
       icon: <GiGrowth className="text-3xl" />,
@@ -41,6 +44,7 @@ const CompanyPlan = () => {
         "Then garlic, ginger, other vegetables & spices",
         "Only after securing sourcing coverage"
       ],
+      color: "bg-earthy-tan"
     }
   ];
 
@@ -63,13 +67,14 @@ const CompanyPlan = () => {
           {planItems.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white/40 p-8 rounded-xl shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={ `p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow ${item.color} bg-opacity-20` }
+              variants={{
+                hidden: { y: 20, opacity: 0 },
+                visible: { y: 0, opacity: 1 }
+              }}
+              whileHover={{ y: -5 }}
             >
-              <div className={`w-16 h-16 bg-olive rounded-full flex items-center text-earthy-beige justify-center mb-6`}>
+              <div className={`w-16 h-16 ${item.color} rounded-full flex items-center justify-center mb-6`}>
                 {item.icon}
               </div>
               <h3 className="text-2xl font-display font-bold mb-3">{item.title}</h3>
