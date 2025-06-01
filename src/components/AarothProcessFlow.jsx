@@ -56,7 +56,7 @@ const AarothProcessFlow = () => {
   };
 
   return (
-    <section className="py-16 px-4 bg-earthy-beige min-h-screen">
+    <section className="py-16 px-4 bg-earthy-beige rounded-2xl m-5 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16"

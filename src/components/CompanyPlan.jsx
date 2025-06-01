@@ -131,7 +131,7 @@ const CompanyPlan = () => {
         </FadeIn>
 
         {/* Current Focus Section */}
-        <div className="mb-20">
+        <div className="mb-20 bg-earthy-beige/50 p-16 rounded-3xl">
           <FadeIn>
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-display font-semibold text-earthy-brown mb-2">
@@ -174,7 +174,7 @@ const CompanyPlan = () => {
         </div>
 
         {/* Strategic Roadmap Section */}
-        <div className="mt-24">
+        <div className="mt-24 bg-earthy-beige/50 p-16 rounded-3xl">
           <FadeIn>
             <div className="text-center mb-12">
               <h3 className="text-2xl md:text-3xl font-display font-semibold text-earthy-brown mb-2">
