@@ -62,14 +62,20 @@ const CurrentOfferings = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-earthy-beige">
+    <section id ="current-offerings" className="py-16 px-4 bg-gradient-to-br from-earthy-tan/80 to-earthy-beige/50">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-earthy-brown mb-4">
               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-olive to-earthy-yellow">Offerings</span> 
             </h2>
-            <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full"></div>
+            <motion.div 
+            className="w-32 h-1 bg-gradient-to-r from-earthy-yellow to-olive mx-auto rounded-full mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
           </div>
         </FadeIn>
 
@@ -89,7 +95,7 @@ const CurrentOfferings = () => {
             }
           }}
         >
-          <h3 className="text-2xl font-display font-bold text-earthy-brown mb-8 text-center">
+           <h3 className="text-2xl md:text-3xl font-display font-semibold text-center text-earthy-brown mb-2">
             What We Bring <span className="text-transparent bg-clip-text bg-olive">to the Table</span> Right Now
           </h3>
           
@@ -134,7 +140,7 @@ const CurrentOfferings = () => {
             }
           }}
         >
-          <h3 className="text-2xl font-display font-bold text-earthy-brown mb-8 text-center">
+          <h3 className="text-2xl md:text-3xl font-display text-center font-semibold text-earthy-brown mb-2">
             <span className="text-transparent bg-clip-text bg-olive">Beyond</span>  the Basics: Coming Soon
           </h3>
           
@@ -176,22 +182,6 @@ const CurrentOfferings = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <div className="w-24 h-24 relative">
-            <motion.div 
-              className="absolute inset-0 border-r-4 border-b-4 border-earthy-yellow rounded-br-full"
-              animate={{ 
-                borderColor: ['#D4A373', '#8C644A', '#D4A373'],
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                repeatType: 'reverse'
-              }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center text-earthy-brown font-display font-bold">
-              Next Phase
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

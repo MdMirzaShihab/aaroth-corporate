@@ -19,7 +19,7 @@ const MissionVision = () => {
   ];
 
   return (
-    <section id="mission" className="py-20 bg-gradient-to-b from-earthy-beige/30 to-earthy-tan/30 relative overflow-hidden">
+    <section id="mission" className="py-20 bg-gradient-to-br from-earthy-tan/30 via-white/50 to-earthy-tan/50 relative overflow-hidden">
       {/* Floating circles */}
       <motion.div 
         animate={{
@@ -51,39 +51,51 @@ const MissionVision = () => {
       <div className="container mx-auto px-6 relative z-10">
         <FadeIn>
         <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
+        <h2 className="text-4xl md:text-5xl font-display font-bold text-earthy-brown mb-4">
             Mission <span className="text-transparent bg-clip-text bg-gradient-to-r from-earthy-yellow to-olive">&</span> Vision
           </h2>
-          <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full"></div>
+          <motion.div 
+            className="w-32 h-1 bg-gradient-to-r from-earthy-yellow to-olive mx-auto rounded-full mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
         </div>
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {cards.map((card, index) => (
-            <FloatIn key={index} delay={index * 0.2}>
-              <motion.div
-                whileHover="hover"
-                initial="rest"
-                variants={{
-                  rest: { rotateY: 0, rotateX: 0 },
-                  hover: { rotateY: 5, rotateX: 5 }
-                }}
-                transition={{ type: 'spring', stiffness: 200 }}
-                className="h-full"
-              >
-                <GlassCard>
-                  <div className={`h-full p-8 rounded-2xl bg-gradient-to-br from-earthy-yellow to-earthy-brown text-white`}>
-                    <div className="w-16 h-16 rounded-xl bg-white/30 backdrop-blur-md flex items-center justify-center mb-6">
-                      {card.icon}
-                    </div>
-                    <h3 className="text-2xl font-display font-bold mb-4">{card.title}</h3>
-                    <p className="opacity-90">{card.content}</p>
-                  </div>
-                </GlassCard>
-              </motion.div>
-            </FloatIn>
-          ))}
+  {cards.map((card, index) => (
+    <FloatIn key={index} delay={index * 0.2}>
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="h-full"
+      >
+        <div className={`h-full p-8 rounded-2xl border-2 border-earthy-tan/60 bg-earthy-tan/30 backdrop-blur-sm shadow-lg overflow-hidden relative group transition-all duration-300 hover:border-earthy-yellow/70 hover:shadow-xl`}>
+          {/* Decorative background elements */}
+          <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-earthy-yellow/10 group-hover:bg-earthy-yellow/20 transition-all duration-500"></div>
+          <div className="absolute -left-5 -bottom-5 w-32 h-32 rounded-full bg-olive/5 group-hover:bg-olive/10 transition-all duration-700"></div>
+          
+          {/* Icon container */}
+          <div className={`w-16 h-16 rounded-lg mb-6 flex items-center justify-center ${index === 0 ? 'bg-earthy-yellow/20 text-earthy-yellow' : 'bg-olive/20 text-olive'} group-hover:scale-110 transition-transform duration-300`}>
+            {card.icon}
+          </div>
+          
+          {/* Content */}
+          <h3 className="text-2xl font-display font-bold text-earthy-brown mb-4 relative z-10">
+            {card.title}
+          </h3>
+          <p className="text-earthy-brown/80 relative z-10 leading-relaxed">
+            {card.content}
+          </p>
+          
+          {/* Bottom accent */}
+          <div className={`absolute bottom-0 left-0 right-0 h-1 ${index === 0 ? 'bg-gradient-to-r from-earthy-yellow/80 to-earthy-yellow/20' : 'bg-gradient-to-r from-olive/80 to-olive/20'} group-hover:h-1.5 transition-all duration-300`}></div>
         </div>
+      </motion.div>
+    </FloatIn>
+  ))}
+</div>
 
         <FadeIn delay={0.6}>
           <GlassCard>
@@ -108,18 +120,34 @@ const MissionVision = () => {
                   ))}
                 </ul>
               </div>
-              <div className="lg:w-1/2 p-8 lg:border-l border-white/10">
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-earthy-yellow/30 to-olive/30 rounded-3xl blur-xl opacity-50"></div>
-                  <div className="relative bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg">
-                    <img 
-                      src= {AarothProcessFlowPic}
-                      alt="Aaroth process flow"
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-              </div>
+              <div className="lg:w-1/2 p-4 lg:border-l border-earthy-tan/20">
+        <div className="relative overflow-hidden rounded-xl shadow-lg">
+          {/* Color overlay to harmonize the image */}
+          <div className="absolute inset-0 bg-gradient-to-br from-earthy-beige/30 to-earthy-tan/20 z-10 mix-blend-soft-light"></div>
+          
+          {/* Image frame decoration */}
+          <div className="absolute inset-0 border-2 border-earthy-tan/30 rounded-xl pointer-events-none"></div>
+          
+          {/* Process flow diagram with adjusted colors */}
+          <img 
+            src={AarothProcessFlowPic}
+            alt="Aaroth agricultural supply chain process flow"
+            className="w-full h-auto relative z-0"
+            style={{
+              filter: 'sepia(20%) hue-rotate(-5deg) saturate(110%) contrast(90%)',
+            }}
+          />
+          
+          {/* Animated decorative elements */}
+          <motion.div 
+            className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-earthy-yellow via-olive to-earthy-brown"
+            initial={{ width: 0 }}
+            whileInView={{ width: '100%' }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            viewport={{ once: true }}
+          />
+        </div>
+      </div>
             </div>
           </GlassCard>
         </FadeIn>

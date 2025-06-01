@@ -4,12 +4,34 @@ import { useState } from 'react';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navItems = [
+    { label: 'Home', id: 'home' },
+    { label: 'Why Aaroth', id: 'why-aaroth' },
+    { label: 'Company Plan', id: 'company-plan' },
+    { label: 'Mission', id: 'mission' },
+    { label: 'Team', id: 'team' },
+    { label: 'Offerings', id: 'current-offerings' },
+    { label: 'Contact', id: 'contact' }
+  ];
+
+  // Smooth scroll function
+  const smoothScroll = (id) => {
+    setIsOpen(false); // Close mobile menu if open
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <motion.header 
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-earthy-beige shadow-md fixed w-full z-50"
+      className="bg-earthy-beige/80 backdrop-blur-md shadow-md fixed w-full z-50"
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -17,7 +39,12 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <span className="text-earthy-brown text-2xl font-display font-bold">AAROTH</span>
+            <button 
+              onClick={() => smoothScroll('home')} 
+              className="text-earthy-brown text-2xl font-display font-bold"
+            >
+              AAROTH
+            </button>
           </motion.div>
           
           {/* Mobile menu button */}
@@ -35,15 +62,15 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {['Home', 'Why Aaroth', 'Company Plan', 'Mission', 'Roadmap', 'Team', 'Contact'].map((item) => (
-              <motion.a 
-                key={item}
+            {navItems.map((item) => (
+              <motion.button 
+                key={item.id}
                 whileHover={{ scale: 1.1, color: '#8C644A' }}
                 className="text-earthy-brown font-medium cursor-pointer"
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
+                onClick={() => smoothScroll(item.id)}
               >
-                {item}
-              </motion.a>
+                {item.label}
+              </motion.button>
             ))}
           </nav>
         </div>
@@ -57,16 +84,15 @@ const Header = () => {
             className="md:hidden mt-4"
           >
             <div className="flex flex-col space-y-4">
-              {['Home', 'Why Aaroth', 'Company Plan', 'Mission', 'Roadmap', 'Team', 'Contact'].map((item) => (
-                <motion.a 
-                  key={item}
+              {navItems.map((item) => (
+                <motion.button 
+                  key={item.id}
                   whileTap={{ scale: 0.95 }}
-                  className="text-earthy-brown font-medium py-2"
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
-                  onClick={() => setIsOpen(false)}
+                  className="text-earthy-brown font-medium py-2 text-left"
+                  onClick={() => smoothScroll(item.id)}
                 >
-                  {item}
-                </motion.a>
+                  {item.label}
+                </motion.button>
               ))}
             </div>
           </motion.div>

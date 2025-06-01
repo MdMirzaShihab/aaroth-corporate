@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import { FaSeedling, FaLeaf, FaTree, FaWater,   FaTractor, FaWarehouse, FaChartLine, FaHandshake } from 'react-icons/fa';
 import { GiWheat, GiCorn, GiFarmTractor } from 'react-icons/gi';
-  import Mirza from '../assets/Team/Mirza.webp';
-  import Rajon from '../assets/Team/Rajon.webp';
-  import Sakib from '../assets/Team/Sakib.webp';
-  import Kalam from '../assets/Team/Kalam.webp';
-  import Shawon from '../assets/Team/Shawon.webp';
+  import Mirza from '../assets/Team/MirzaWeb.webp';
+  import Rajon from '../assets/Team/RajonWeb.webp';
+  import Sakib from '../assets/Team/SakibWeb.webp';
+  import Kalam from '../assets/Team/KalamWeb.webp';
+  import Shawon from '../assets/Team/ShawonWeb.webp';
   import Leon from '../assets/Team/Leon.jpg';
+  import TeamPhilosophy from '../assets/Team/TeamPhilosophy.jpg';
+  
 
 const Team = () => {
   const teamMembers = [
@@ -60,7 +62,7 @@ const Team = () => {
   
 
   return (
-    <section id="team" className="relative py-20 bg-gradient-to-br from-white via-earthy-beige/30 to-white overflow-hidden">
+    <section id="team" className="relative py-20 bg-gradient-to-br from-earthy-tan/30 via-earthy-beige/30 to-earthy-tan/50 overflow-hidden">
   <motion.div 
     className="absolute top-10 left-1/4 opacity-5 pointer-events-none"
     animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
@@ -175,7 +177,7 @@ const Team = () => {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 max-w-6xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
@@ -184,20 +186,15 @@ const Team = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-100px" }}
               whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)" }}
-              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-white/20 backdrop-blur-sm"
+              className=" bg-gradient-to-b from-transparent via-transparent group to-earthy-tan/80 backdrop-blur-smrelative flex flex-col text-gray-700 shadow-md h-full grooup-hover:shadow-lg rounded-xl"
             >
-              <div className="relative w-full aspect-square overflow-hidden group">
+              <div className="relative w-full overflow-hidden border-4 border-earthy-tan rounded-xl shadow-lg">
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full rounded-xl object-cover transition-all duration-500 group-hover:bg-earthy-tan group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <div>
-                    <h3 className="text-white text-2xl font-bold">{member.name}</h3>
-                    <p className="text-earthy-yellow font-medium">{member.role}</p>
-                  </div>
-                </div>
+                
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
@@ -264,7 +261,7 @@ const Team = () => {
                 transition={{ duration: 0.3 }}
               >
                 <img 
-                  src="/dummy-team-philosophy.jpg" 
+                  src={TeamPhilosophy}
                   alt="Team philosophy"
                   className="w-full h-full object-cover"
                 />
@@ -272,7 +269,7 @@ const Team = () => {
                   className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 bg-black/30 transition-opacity duration-300 rounded-full"
                   whileHover={{ opacity: 1 }}
                 >
-                  <FaSeedling className="text-white text-4xl" />
+                  <FaSeedling className="text-lime-600 text-4xl" />
                 </motion.div>
               </motion.div>
             </div>

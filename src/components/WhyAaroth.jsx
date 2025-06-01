@@ -45,14 +45,20 @@ const WhyAaroth = () => {
       ];
 
   return (
-    <section className="py-16 px-4 bg-text-earthy-tan">
+    <section id= "why-aaroth" className="py-16 px-4 bg-text-earthy-tan">
       <div className="max-w-6xl mx-auto">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-earthy-brown mb-4">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-earthy-brown mb-4">
               Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-olive to-earthy-yellow">Aaroth</span> Stands Out
             </h2>
-            <div className="w-24 h-1 bg-earthy-yellow mx-auto rounded-full mb-6"></div>
+            <motion.div 
+            className="w-32 h-1 bg-gradient-to-r from-earthy-yellow to-olive mx-auto rounded-full mb-6"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
             <p className="text-earthy-brown max-w-3xl mx-auto text-lg">
               Our unique approach combines technology with deep agricultural expertise
             </p>

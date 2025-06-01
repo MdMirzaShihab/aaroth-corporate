@@ -18,7 +18,7 @@ function App() {
       <WhyAaroth />
       <CompanyPlan />
       <MissionVision />
-      <Roadmap />
+      {/* <Roadmap /> */}
       <Team />
       <CurrentOfferings />
       {/* <CaseStudy /> */}
