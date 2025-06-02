@@ -99,7 +99,7 @@ const CurrentOfferings = () => {
             What We Bring <span className="text-transparent bg-clip-text bg-olive">to the Table</span> Right Now
           </h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 pt-10">
             {currentServices.map((service, index) => (
               <motion.div
                 key={`current-${index}`}
@@ -144,7 +144,7 @@ const CurrentOfferings = () => {
             <span className="text-transparent bg-clip-text bg-olive">Beyond</span>  the Basics: Coming Soon
           </h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 pt-10">
             {futureInnovations.map((innovation, index) => (
               <motion.div
                 key={`future-${index}`}

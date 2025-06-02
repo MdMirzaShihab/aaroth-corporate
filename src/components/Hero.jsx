@@ -3,6 +3,7 @@ import { FadeIn, SlideIn, FloatIn, GlassCard } from '../Animator';
 import { FaSeedling, FaLeaf, FaTree, FaWater,   FaTractor, FaWarehouse, FaChartLine, FaHandshake } from 'react-icons/fa';
 import { GiWheat, GiCorn, GiFarmTractor } from 'react-icons/gi';
 import HeroPic from '../assets/AarothFarmerPic.jpg';
+import AarothMockup from '../assets/AarothMockup.webp';
 
 const Hero = () => {
   const floatingItems = [
@@ -164,9 +165,9 @@ const Hero = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-earthy-yellow/40 to-olive/40 rounded-3xl blur-xl opacity-70"></div>
                 <div className="relative bg-white/60 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl">
                   <img 
-                    src={HeroPic} 
+                    src={ AarothMockup} 
                     alt="Agriculture supply chain"
-                    className="w-full h-auto rounded-t-2xl"
+                    className="w-full h-auto rounded-t-2xl p-10"
                   />
                   <div className="p-6">
                     <div className="flex flex-wrap justify-center gap-3">
