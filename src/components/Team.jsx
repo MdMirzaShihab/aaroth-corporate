@@ -20,15 +20,6 @@ const Team = () => {
       image: Sakib
     },
     {
-      name: "Md Mirza Shihab",
-      role: "Co-Founder",
-      department: "ICT Department",
-      education: "BSc, University of Technology Malaysia (CS)",
-      experience: "Software Engineer for over two years at Popular Group",
-      Certs: "Certified Scrum Master, Project Management: Professional Certificate",
-      image: Mirza
-    },
-    {
       name: "Enamul Kabir Rajon",
       role: "Co-Founder",
       department: "Marketing and Distribution",
@@ -49,6 +40,15 @@ const Team = () => {
       department: "Public Relation",
       education: "BSc, EUB (Civil Engineering)",
       image: Kalam
+    },
+    {
+      name: "Md Mirza Shihab",
+      role: "Tech-Lead",
+      department: "ICT Department",
+      education: "BSc, University of Technology Malaysia (CS)",
+      experience: "Software Engineer for over two years at Popular Group",
+      Certs: "Certified Scrum Master, Project Management: Professional Certificate",
+      image: Mirza
     },
     {
       name: "Abu Sayeed Lion",
