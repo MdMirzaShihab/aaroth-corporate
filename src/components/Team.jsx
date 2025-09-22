@@ -19,20 +19,20 @@ const Team = () => {
       education: "BBA, Dhaka University (AIS)",
       image: Sakib
     },
-    {
-      name: "Enamul Kabir Rajon",
-      role: "Co-Founder",
-      department: "Marketing and Distribution",
-      education: "BSc, RUET (Ceramic and metallurgical Engineering)",
-      image: Rajon
-    },
-    {
+        {
       name: "Shariful Islam",
       role: "Co-Founder",
       department: "Supply-chain Management",
       education: "BSc, Green University (CSE)",
       experience: "Working as an onion supplier for over fourteen years.",
       image: Shawon
+    },
+    {
+      name: "Enamul Kabir Rajon",
+      role: "Co-Founder",
+      department: "Marketing and Distribution",
+      education: "BSc, RUET (Ceramic and metallurgical Engineering)",
+      image: Rajon
     },
     {
       name: "Abul Kalam Azad",

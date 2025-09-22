@@ -1,8 +1,143 @@
 import { motion } from 'framer-motion';
 import { FadeIn } from '../Animator';
 import { FiMail, FiGlobe, FiMapPin, FiPhone } from 'react-icons/fi';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    success: false,
+    error: false,
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setFormStatus({
+        loading: false,
+        success: false,
+        error: true,
+        message: 'Please fill in all fields.'
+      });
+      return;
+    }
+
+    setFormStatus({
+      loading: true,
+      success: false,
+      error: false,
+      message: 'Sending message...'
+    });
+
+    try {
+      // EmailJS Configuration - Get these from https://dashboard.emailjs.com/
+      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';  
+      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      // Prepare email parameters
+      const emailParams = {
+        to_email: 'aarothofficial@gmail.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        reply_to: formData.email
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        emailParams,
+        PUBLIC_KEY
+      );
+
+      console.log('Email sent successfully:', result);
+      
+      setFormStatus({
+        loading: false,
+        success: true,
+        error: false,
+        message: 'Message sent successfully! We\'ll get back to you soon.'
+      });
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+    } catch (error) {
+      console.error('EmailJS failed:', error);
+      
+      // Fallback: Use mailto if EmailJS fails
+      try {
+        const subject = encodeURIComponent(`Contact Form: ${formData.subject}`);
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Subject: ${formData.subject}\n\n` +
+          `Message:\n${formData.message}`
+        );
+        
+        const mailtoLink = `mailto:aarothofficial@gmail.com?subject=${subject}&body=${body}`;
+        window.location.href = mailtoLink;
+        
+        setFormStatus({
+          loading: false,
+          success: true,
+          error: false,
+          message: 'Email client opened! Please send the email from your email application.'
+        });
+        
+        // Reset form after delay
+        setTimeout(() => {
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+          setFormStatus({
+            loading: false,
+            success: false,
+            error: false,
+            message: ''
+          });
+        }, 5000);
+        
+      } catch (mailtoError) {
+        console.error('Both EmailJS and mailto failed:', mailtoError);
+        setFormStatus({
+          loading: false,
+          success: false,
+          error: true,
+          message: 'Unable to send email automatically. Please contact us directly at aarothofficial@gmail.com'
+        });
+      }
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-earthy-tan/30 via-white/50 to-earthy-tan/50 relative overflow-hidden">
       {/* Decorative elements */}
@@ -39,12 +174,15 @@ const Contact = () => {
                   Send us a message
                 </h3>
                 
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label htmlFor="name" className="block text-earthy-brown/90 mb-2 font-medium">Name</label>
                     <input 
                       type="text" 
                       id="name" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-earthy-tan/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-earthy-yellow/50 focus:border-transparent bg-white/50"
                       placeholder="Your name"
                       required
@@ -56,6 +194,9 @@ const Contact = () => {
                     <input 
                       type="email" 
                       id="email" 
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-earthy-tan/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-earthy-yellow/50 focus:border-transparent bg-white/50"
                       placeholder="your.email@example.com"
                       required
@@ -67,6 +208,9 @@ const Contact = () => {
                     <input 
                       type="text" 
                       id="subject" 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
                       className="w-full px-4 py-3 border border-earthy-tan/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-earthy-yellow/50 focus:border-transparent bg-white/50"
                       placeholder="Subject of your message"
                       required
@@ -77,6 +221,9 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-earthy-brown/90 mb-2 font-medium">Message</label>
                     <textarea 
                       id="message" 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       rows="4"
                       className="w-full px-4 py-3 border border-earthy-tan/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-earthy-yellow/50 focus:border-transparent bg-white/50"
                       placeholder="Your message here..."
@@ -85,13 +232,31 @@ const Contact = () => {
                   </div>
                   
                   <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gradient-to-r from-earthy-yellow to-olive text-white px-6 py-3 rounded-xl font-medium shadow-md hover:shadow-lg transition-all duration-300"
+                    whileHover={{ scale: formStatus.loading ? 1 : 1.02 }}
+                    whileTap={{ scale: formStatus.loading ? 1 : 0.98 }}
+                    className={`w-full px-6 py-3 rounded-xl font-medium shadow-md transition-all duration-300 ${
+                      formStatus.loading 
+                        ? 'bg-earthy-tan text-earthy-brown/70 cursor-not-allowed' 
+                        : 'bg-gradient-to-r from-earthy-yellow to-olive text-white hover:shadow-lg'
+                    }`}
                     type="submit"
+                    disabled={formStatus.loading}
                   >
-                    Send Message
+                    {formStatus.loading ? 'Sending...' : 'Send Message'}
                   </motion.button>
+                  
+                  {/* Status Message */}
+                  {formStatus.message && (
+                    <div className={`mt-4 p-3 rounded-xl text-center font-medium ${
+                      formStatus.success 
+                        ? 'bg-green-100 text-green-800 border border-green-200' 
+                        : formStatus.error 
+                        ? 'bg-red-100 text-red-800 border border-red-200'
+                        : 'bg-blue-100 text-blue-800 border border-blue-200'
+                    }`}>
+                      {formStatus.message}
+                    </div>
+                  )}
                 </form>
               </motion.div>
             </FadeIn>
@@ -114,7 +279,7 @@ const Contact = () => {
                       {
                         icon: <FiMail className="text-olive" />,
                         title: "Email",
-                        content: <a href="mailto:hello@aaroth.com" className="text-earthy-brown hover:text-olive transition-colors">hello@aaroth.com</a>,
+                        content: <a href="mailto:aarothofficial@gmail.com" className="text-earthy-brown hover:text-olive transition-colors">aarothofficial@gmail.com</a>,
                         bg: "bg-earthy-yellow/10"
                       },
                       {

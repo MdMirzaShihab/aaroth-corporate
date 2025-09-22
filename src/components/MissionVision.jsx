@@ -151,7 +151,7 @@ const MissionVision = () => {
             </div>
           </GlassCard>
         </FadeIn>
-        <AarothProcessFlow />
+        {/* <AarothProcessFlow /> */}
       </div>
     </section>
   );
