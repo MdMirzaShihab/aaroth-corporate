@@ -1,11 +1,15 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FadeIn, SlideIn, FloatIn, GlassCard } from '../Animator';
 import { FaSeedling, FaLeaf, FaTree, FaWater,   FaTractor, FaWarehouse, FaChartLine, FaHandshake } from 'react-icons/fa';
 import { GiWheat, GiCorn, GiFarmTractor } from 'react-icons/gi';
 import HeroPic from '../assets/AarothFarmerPic.jpg';
 import AarothMockup from '../assets/AarothMockup.webp';
+import VideoModal from './VideoModal';
 
 const Hero = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
   const floatingItems = [
     { text: "Farmers", color: "bg-earthy-yellow/80", textColor:" text-white" },
     { text: "Wholesalers", color: "bg-earthy-tan/80", textColor:" text-earthy-brown" },
@@ -152,6 +156,7 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsVideoModalOpen(true)}
                 className="backdrop-blur-lg bg-white/20 border border-white/20 text-earthy-brown px-8 py-3 rounded-full font-medium shadow-lg"
               >
                 Watch Video
@@ -194,6 +199,13 @@ const Hero = () => {
           </SlideIn>
         </div>
       </div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoUrl="https://youtu.be/s2GEc1siKCY"
+      />
     </section>
   );
 };
