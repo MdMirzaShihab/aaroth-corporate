@@ -16,7 +16,7 @@ const Team = () => {
       name: "Nazmus Sakib",
       role: "Co-Founder",
       department: "Finance and Administration",
-      education: "BBA, Dhaka University (AIS)",
+      education: "BBA, University of Dhaka (AIS)",
       image: Sakib
     },
         {
@@ -54,7 +54,7 @@ const Team = () => {
       name: "Abu Sayeed Lion",
       role: "Director",
       department: "Public Relation",
-      education: "MA, Dhaka University (Public Administration)",
+      education: "MA, University of Dhaka (Public Administration)",
       image: Leon
     }
   ];
