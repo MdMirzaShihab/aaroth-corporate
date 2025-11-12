@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { FaTimes, FaRobot, FaChartLine, FaStore, FaTruck, FaWarehouse, FaExclamationTriangle, FaDollarSign, FaRoad, FaShieldAlt } from 'react-icons/fa';
+import AarothLogo from '../assets/AAROTHLOGOPNG-min.png';
 
 const LearnMoreModal = ({ isOpen, onClose }) => {
   // Add style tag for hiding scrollbar in WebKit browsers
@@ -150,7 +151,7 @@ const LearnMoreModal = ({ isOpen, onClose }) => {
                   msOverflowStyle: 'none', /* IE and Edge */
                 }}
               >
-                {/* Header - Slide from Left */}
+                {/* Header - Logo */}
                 <motion.div
                   variants={slideFromLeft}
                   initial="hidden"
@@ -158,18 +159,11 @@ const LearnMoreModal = ({ isOpen, onClose }) => {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="text-center mb-8"
                 >
-                  <p className="text-earthy-yellow text-sm md:text-base font-bold mb-2 uppercase tracking-wide">
-                    Mega-Marketplace for Agricultural Products
-                  </p>
-                  <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
-                    This is not another agri-business,<br/>
-                    <span className="text-earthy-yellow font-extrabold">
-                      Aaroth is the agri-revolution
-                    </span>
-                  </h2>
-                  <p className="text-white/95 text-base md:text-lg max-w-3xl mx-auto">
-                    Revolutionizing Bangladesh's agricultural market by connecting farmers directly with buyers through a transparent, AI-powered marketplace — empowering 40-45% of our population dependent on agriculture
-                  </p>
+                  <img
+                    src={AarothLogo}
+                    alt="Aaroth - Redefining the Agricultural Supply Chain"
+                    className="max-w-md mx-auto w-full"
+                  />
                 </motion.div>
 
                 {/* The Challenge - Slide from Right */}

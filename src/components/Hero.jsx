@@ -7,6 +7,7 @@ import HeroPic from '../assets/AarothFarmerPic.jpg';
 import AarothMockup from '../assets/AarothMockup.webp';
 import VideoModal from './VideoModal';
 import LearnMoreModal from './LearnMoreModal';
+import AarothLogo from '../assets/AAROTHLOGOPNG-min.png';
 
 const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -137,6 +138,11 @@ const Hero = () => {
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <FadeIn className="lg:w-1/2">
+            <img
+              src={AarothLogo}
+              alt="Aaroth - Redefining the Agricultural Supply Chain"
+              className="max-w-xs md:max-w-sm mx-auto lg:mx-0 mb-6"
+            />
             <h1 className="text-4xl md:text-6xl font-display font-bold text-earthy-brown mb-6 leading-tight">
               Redefining <span className="text-transparent bg-clip-text bg-gradient-to-r from-olive to-earthy-yellow">Bangladesh's</span> agricultural supply chain
             </h1>

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FadeIn } from '../Animator';
 import { FiFacebook, FiTwitter, FiLinkedin, FiInstagram } from 'react-icons/fi';
+import AarothLogo from '../assets/AAROTHLOGOPNG-min.png';
 
 const Footer = () => {
   const links = [
@@ -25,11 +26,15 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between">
           <FadeIn className="mb-8 md:mb-0">
-            <div className="flex items-center mb-4">
-              <span className="text-2xl font-display font-bold">AAROTH</span>
+            <div className="mb-4">
+              <img
+                src={AarothLogo}
+                alt="Aaroth - Redefining the Agricultural Supply Chain"
+                className="w-48 md:w-64"
+              />
             </div>
             <p className="max-w-xs opacity-80 mb-4">
-              Redefining Bangladesh's agricultural supply chain through transparency, technology and trust.
+              Empowering Bangladesh's agricultural ecosystem through transparency, technology and trust.
             </p>
             <div className="flex space-x-4">
               {socials.map((social, index) => (
