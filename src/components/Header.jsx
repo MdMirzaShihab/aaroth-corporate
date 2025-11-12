@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import AarothIcon from '../assets/AAROTH_ICON-min.png';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,15 +36,22 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <button 
-              onClick={() => smoothScroll('home')} 
-              className="text-earthy-brown text-2xl font-display font-bold"
+            <button
+              onClick={() => smoothScroll('home')}
+              className="flex items-end gap-2"
             >
-              AAROTH
+              <img
+                src={AarothIcon}
+                alt="Aaroth Logo"
+                className="h-10 w-10"
+              />
+              <span className="text-earthy-brown text-2xl font-display font-bold">
+                AAROTH
+              </span>
             </button>
           </motion.div>
           

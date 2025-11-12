@@ -44,7 +44,7 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
           onClick={onClose}
         >
           {/* Backdrop */}
-          <div className="absolute inset-0 bg-earthy-brown/80 backdrop-blur-md" />
+          <div className="absolute inset-0 z-0 bg-earthy-brown/80 backdrop-blur-md" />
 
           {/* Modal Content */}
           <motion.div
@@ -55,6 +55,17 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
             className="relative w-full max-w-5xl z-10"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button - Positioned outside glass card for proper z-index layering */}
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={onClose}
+              className="absolute -top-4 -right-4 z-[60] bg-white hover:bg-earthy-yellow text-earthy-brown p-3 rounded-full shadow-2xl ring-2 ring-white/50 transition-colors duration-200"
+              aria-label="Close modal"
+            >
+              <FaTimes className="text-xl" />
+            </motion.button>
+
             {/* Glass Card Container */}
             <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl overflow-hidden">
               {/* Gradient Glow Effect */}
@@ -62,17 +73,6 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
 
               {/* Content */}
               <div className="relative">
-                {/* Close Button */}
-                <motion.button
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={onClose}
-                  className="absolute -top-4 -right-4 z-20 bg-earthy-brown hover:bg-earthy-yellow text-white p-3 rounded-full shadow-lg transition-colors duration-200"
-                  aria-label="Close modal"
-                >
-                  <FaTimes className="text-xl" />
-                </motion.button>
-
                 {/* Video Container */}
                 <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
                   {videoId ? (

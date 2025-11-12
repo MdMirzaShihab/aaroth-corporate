@@ -6,9 +6,11 @@ import { GiWheat, GiCorn, GiFarmTractor } from 'react-icons/gi';
 import HeroPic from '../assets/AarothFarmerPic.jpg';
 import AarothMockup from '../assets/AarothMockup.webp';
 import VideoModal from './VideoModal';
+import LearnMoreModal from './LearnMoreModal';
 
 const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isLearnMoreModalOpen, setIsLearnMoreModalOpen] = useState(false);
 
   const floatingItems = [
     { text: "Farmers", color: "bg-earthy-yellow/80", textColor:" text-white" },
@@ -143,16 +145,17 @@ const Hero = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
+                whileHover={{
+                  scale: 1.05,
                   boxShadow: "0px 10px 25px -10px rgba(140,100,74,0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsLearnMoreModalOpen(true)}
                 className="bg-earthy-brown text-white px-8 py-3 rounded-full font-medium shadow-lg"
               >
                 Learn More
               </motion.button>
-              
+
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -205,6 +208,12 @@ const Hero = () => {
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
         videoUrl="https://youtu.be/s2GEc1siKCY"
+      />
+
+      {/* Learn More Modal */}
+      <LearnMoreModal
+        isOpen={isLearnMoreModalOpen}
+        onClose={() => setIsLearnMoreModalOpen(false)}
       />
     </section>
   );
