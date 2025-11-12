@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FadeIn } from '../Animator';
 import { FiFacebook, FiTwitter, FiLinkedin, FiInstagram } from 'react-icons/fi';
-import AarothLogo from '../assets/AAROTHLOGOPNG-min.png';
+import AarothLogo from '../assets/AAROTH_ICON-min.png';
 
 const Footer = () => {
   const links = [
@@ -29,8 +29,8 @@ const Footer = () => {
             <div className="mb-4">
               <img
                 src={AarothLogo}
-                alt="Aaroth - Redefining the Agricultural Supply Chain"
-                className="w-48 md:w-64"
+                alt="Aaroth Icon"
+                className="w-24 md:w-32"
               />
             </div>
             <p className="max-w-xs opacity-80 mb-4">

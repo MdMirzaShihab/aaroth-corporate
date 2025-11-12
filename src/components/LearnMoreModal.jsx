@@ -159,11 +159,13 @@ const LearnMoreModal = ({ isOpen, onClose }) => {
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="text-center mb-8"
                 >
-                  <img
-                    src={AarothLogo}
-                    alt="Aaroth - Redefining the Agricultural Supply Chain"
-                    className="max-w-md mx-auto w-full"
-                  />
+                  <div className="bg-white rounded-2xl p-6 md:p-8 inline-block shadow-2xl">
+                    <img
+                      src={AarothLogo}
+                      alt="Aaroth - Redefining the Agricultural Supply Chain"
+                      className="max-w-xs md:max-w-md w-full"
+                    />
+                  </div>
                 </motion.div>
 
                 {/* The Challenge - Slide from Right */}
