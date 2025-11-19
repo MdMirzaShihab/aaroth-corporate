@@ -20,12 +20,13 @@ const Team = () => {
       image: Sakib
     },
         {
-      name: "Shariful Islam",
+      name: "Md Mirza Shihab",
       role: "Co-Founder",
-      department: "Supply-chain Management",
-      education: "BSc, Green University (CSE)",
-      experience: "Working as an onion supplier for over fourteen years.",
-      image: Shawon
+      department: "ICT Department",
+      education: "BSc, University of Technology Malaysia (CS)",
+      experience: "Software Engineer for over two years at Popular Group",
+      Certs: "Certified Scrum Master, Project Management: Professional Certificate",
+      image: Mirza
     },
     {
       name: "Enamul Kabir Rajon",
@@ -35,20 +36,19 @@ const Team = () => {
       image: Rajon
     },
     {
+      name: "Shariful Islam",
+      role: "Co-Founder",
+      department: "Supply-chain Management",
+      education: "BSc, Green University (CSE)",
+      experience: "Working as an onion supplier for over fourteen years.",
+      image: Shawon
+    },
+    {
       name: "Abul Kalam Azad",
       role: "Director",
       department: "Public Relation",
       education: "BSc, EUB (Civil Engineering)",
       image: Kalam
-    },
-    {
-      name: "Md Mirza Shihab",
-      role: "Tech-Lead",
-      department: "ICT Department",
-      education: "BSc, University of Technology Malaysia (CS)",
-      experience: "Software Engineer for over two years at Popular Group",
-      Certs: "Certified Scrum Master, Project Management: Professional Certificate",
-      image: Mirza
     },
     {
       name: "Abu Sayeed Lion",
